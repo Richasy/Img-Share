@@ -1,24 +1,40 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 //https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
 
-namespace Img_Share.Conrols
+namespace Img_Share.Controls
 {
-    public sealed partial class PopupMaskTip : UserControl
+    /// <summary>
+    /// 做一个等待提醒
+    /// </summary>
+    public sealed partial class HoldMaskTip : UserControl
     {
+        //存放弹出框中的信息
         private string _popupContent;
 
         //创建一个popup对象
         private Popup _popup = null;
-        public PopupMaskTip()
+        public HoldMaskTip()
         {
             this.InitializeComponent();
             //将当前的长和框 赋值给控件
             this.Width = Window.Current.Bounds.Width;
             this.Height = Window.Current.Bounds.Height;
+            this.HorizontalAlignment = HorizontalAlignment.Center;
+            this.VerticalAlignment = VerticalAlignment.Center;
 
             //将当前的控价赋值给弹窗的Child属性  Child属性是弹窗需要显示的内容 当前的this是一个Grid控件。
             _popup = new Popup();
@@ -31,7 +47,7 @@ namespace Img_Share.Conrols
         /// 重载
         /// </summary>
         /// <param name="popupContentString">弹出框中的内容</param>
-        public PopupMaskTip(string popupContentString) : this()
+        public HoldMaskTip(string popupContentString) : this()
         {
             _popupContent = popupContentString;
         }
@@ -47,7 +63,6 @@ namespace Img_Share.Conrols
             {
                 MainPage.Current.AddMaskInList(this);
             }
-            
         }
 
 
@@ -62,9 +77,6 @@ namespace Img_Share.Conrols
 
             //打开动画
             this.PopupIn.Begin();
-
-            //当进入动画执行之后，代表着弹窗已经到指定位置了，再指定位置等一秒 就可以消失回去了
-            this.PopupIn.Completed += PopupInCompleted;
         }
 
 
@@ -73,13 +85,14 @@ namespace Img_Share.Conrols
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void PopupInCompleted(object sender, object e)
+        public void Close()
         {
-            //在原地续一秒
-            await Task.Delay(2000);
-
             //将消失动画打开
             this.PopupOut.Begin();
+            if (MainPage.Current != null)
+            {
+                MainPage.Current.RemoveMaskFromList(this);
+            }
             //popout 动画完成后 触发
             this.PopupOut.Completed += PopupOutCompleted;
         }
@@ -89,11 +102,6 @@ namespace Img_Share.Conrols
         public void PopupOutCompleted(object sender, object e)
         {
             _popup.IsOpen = false;
-            if (MainPage.Current != null)
-            {
-                MainPage.Current.RemoveMaskFromList(this);
-            }
-            
         }
     }
 }

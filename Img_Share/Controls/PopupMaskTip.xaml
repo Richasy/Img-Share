@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="Img_Share.Conrols.HoldMaskTip"
+    x:Class="Img_Share.Controls.PopupMaskTip"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Img_Share.Conrols"
+    xmlns:local="using:Img_Share.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -14,7 +14,7 @@
         <Storyboard x:Name="PopupIn">
             <DoubleAnimation From="0"
                              To="1"
-                             Duration="00:00:00.3"
+                             Duration="00:00:00.5"
                              Storyboard.TargetName="PopupContainer"
                              Storyboard.TargetProperty="Opacity"
                              >
@@ -22,21 +22,11 @@
                     <PowerEase EasingMode="EaseOut"></PowerEase>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation From="0.2"
-                             To="1"
-                             Duration="00:00:00.3"
+            <DoubleAnimation From="-10"
+                             To="-50"
+                             Duration="00:00:00.5"
                              Storyboard.TargetName="PopupContainer"
-                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                             >
-                <DoubleAnimation.EasingFunction>
-                    <PowerEase EasingMode="EaseOut"></PowerEase>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <DoubleAnimation From="0"
-                             To="1"
-                             Duration="00:00:00.3"
-                             Storyboard.TargetName="PopupContainer"
-                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
                              >
                 <DoubleAnimation.EasingFunction>
                     <PowerEase EasingMode="EaseOut"></PowerEase>
@@ -47,7 +37,7 @@
         <Storyboard x:Name="PopupOut">
             <DoubleAnimation From="1"
                              To="0"
-                             Duration="00:00:00.3"
+                             Duration="00:00:00.5"
                              Storyboard.TargetName="PopupContainer"
                              Storyboard.TargetProperty="Opacity"
                              >
@@ -55,21 +45,11 @@
                     <PowerEase EasingMode="EaseOut"></PowerEase>
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
-            <DoubleAnimation From="1"
-                             To="0"
-                             Duration="00:00:00.3"
+            <DoubleAnimation From="-50"
+                             To="-10"
+                             Duration="00:00:00.5"
                              Storyboard.TargetName="PopupContainer"
-                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                             >
-                <DoubleAnimation.EasingFunction>
-                    <PowerEase EasingMode="EaseOut"></PowerEase>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-            <DoubleAnimation From="1"
-                             To="0.2"
-                             Duration="00:00:00.3"
-                             Storyboard.TargetName="PopupContainer"
-                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
                              >
                 <DoubleAnimation.EasingFunction>
                     <PowerEase EasingMode="EaseOut"></PowerEase>
@@ -78,20 +58,26 @@
         </Storyboard>
 
     </UserControl.Resources>
+
     <Grid>
-        <StackPanel
-             Padding="60,40"
-             Background="{ThemeResource FlyoutBackground}"
+
+        <StackPanel Background="{ThemeResource PrimaryColor}"
+                    CornerRadius="6"
+                    Padding="10"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Bottom"
                     Name="PopupContainer"
                     Opacity="0">
+
+            <!--改变Y轴和透明底-->
             <StackPanel.RenderTransform>
-                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <TranslateTransform Y="-10"></TranslateTransform>
             </StackPanel.RenderTransform>
-            <ProgressRing IsActive="True" Width="40" Foreground="{ThemeResource PrimaryColor}" Height="40" HorizontalAlignment="Center"/>
-            <TextBlock Name="PopupContent" Margin="0,20,0,0" TextAlignment="Center" Foreground="{ThemeResource SubTextColor}" FontSize="15"></TextBlock>
+
+            <TextBlock Name="PopupContent" TextAlignment="Center" Foreground="White" FontSize="12"></TextBlock>
 
         </StackPanel>
+
+
     </Grid>
 </UserControl>

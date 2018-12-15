@@ -22,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 //https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
 
-namespace Img_Share.Conrols
+namespace Img_Share.Controls
 {
     public sealed partial class SettingControl : UserControl,INotifyPropertyChanged
     {
@@ -61,6 +61,8 @@ namespace Img_Share.Conrols
                 GroupCollection.Add(item);
             }
             GroupNameCombo.SelectedItem = GroupCollection.First();
+            ToolTipService.SetToolTip(OpenSourceButton, AppTools.GetReswLanguage("OpenSourceButton"));
+            ToolTipService.SetToolTip(UseInfoButton, AppTools.GetReswLanguage("UseInfoButton"));
         }
 
 
@@ -260,7 +262,13 @@ namespace Img_Share.Conrols
             
         }
 
-        private async void UseGuideButton_Click(object sender, RoutedEventArgs e)
+        private async void OpenSourceButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 开源地址
+            await Launcher.LaunchUriAsync(new Uri("https://github.com/Richasy/Img-Share"));
+        }
+
+        private async void UseInfoButton_Click(object sender, RoutedEventArgs e)
         {
             // 应用说明书
             await Launcher.LaunchUriAsync(new Uri("https://blog.richasy.cn/document/imgshare/"));

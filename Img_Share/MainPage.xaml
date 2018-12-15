@@ -9,7 +9,7 @@
     xmlns:model1="using:OneDriveShareImage.Model"
     xmlns:C7NP="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:C7P="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
-    xmlns:conrols="using:Img_Share.Conrols"
+    xmlns:conrols="using:Img_Share.Controls"
     SizeChanged="Page_SizeChanged"
     mc:Ignorable="d">
     

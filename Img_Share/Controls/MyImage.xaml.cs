@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 //https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
 
-namespace Img_Share.Conrols
+namespace Img_Share.Controls
 {
     /// <summary>
     /// 这是主要的图片显示控件，对ImageEx进行了二次封装
