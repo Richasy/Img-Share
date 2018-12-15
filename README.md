@@ -1,6 +1,6 @@
 # Img Share Open source specification
 
-> Thanks for [Windows Community Toolkits](https://github.com/windows-toolkit/WindowsCommunityToolkit)
+> Thanks for [Windows Community Toolkits](https://github.com/windows-toolkit/WindowsCommunityToolkit).  
 > The OneDrive service they provide is the core component of the software.
 
 ## Function description
