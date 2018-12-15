@@ -1,5 +1,8 @@
 # Img Share Open source specification
 
+> Thanks for [Windows Community Toolkits](https://github.com/windows-toolkit/WindowsCommunityToolkit)
+> The OneDrive service they provide is the core component of the software.
+
 ## Function description
 
 `Image Share` is used to upload pictures to OneDrive and then share the pictures to get links that can be accessed directly. Usually used as embedded pictures for web pages, such as blogging.
@@ -17,7 +20,7 @@ Here is the address: [Microsoft Store](https://www.microsoft.com/store/productId
 |System requirements| Windows10-Ver 1803 or upper|
 |Development tool|Visual Studio 2017|
 |Programing language|C#|
-|Display language|Chinses and English|
+|Display language|Chinese and English|
 |Comment language|Chinese|
 
 ## Deployment instructions
