@@ -1,0 +1,183 @@
+﻿<UserControl
+    x:Class="Img_Share.Conrols.ImageMaskControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share.Conrols"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:C7NP="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:C7P="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+
+        <Storyboard x:Name="PopupIn">
+            <DoubleAnimation From="0"
+                             To="1"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="Opacity"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="0.2"
+                             To="1"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="0"
+                             To="1"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="PopupOut">
+            <DoubleAnimation From="1"
+                             To="0"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="Opacity"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="1"
+                             To="0"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="1"
+                             To="0.2"
+                             Duration="00:00:00.3"
+                             Storyboard.TargetName="PopupContainer"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             >
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseOut"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Style x:Key="TipTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="{ThemeResource TipTextColor}"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="{ThemeResource PopupBackground}">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Name="PopupContainer" Opacity="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="400" CenterY="200"/>
+            </Grid.RenderTransform>
+            <controls:ImageEx
+            IsCacheEnabled="True"
+                        HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                MaxWidth="400"
+                MaxHeight="400"
+                x:Name="MyImageEx"
+                Margin="0,0,-5,0"
+                          Stretch="UniformToFill"
+                          Source="{x:Bind Link,Mode=OneWay}"
+                          PlaceholderSource="{x:Bind HolderImage,Mode=OneWay}"
+                          PlaceholderStretch="UniformToFill"
+                Height="{Binding ElementName=InfoContainer,Path=ActualHeight,Mode=OneWay}"
+            />
+            <StackPanel
+            Grid.Column="1"
+             Padding="40,30"
+            MaxWidth="400"
+                CornerRadius="5"
+             Background="{ThemeResource MainBackground}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Name="InfoContainer"
+                
+                    >
+                <TextBlock x:Uid="ImageInfoTitle" FontSize="18" Foreground="{ThemeResource ImportantTextColor}" HorizontalAlignment="Left" FontFamily="{StaticResource AppTitle}"/>
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock x:Uid="FileName" Style="{StaticResource TipTextStyle}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Name="FileNameTextBox" HorizontalAlignment="Stretch" Text="{x:Bind FileName,Mode=TwoWay}" Style="{StaticResource BasicTextBox}"/>
+                        <Button Content="&#xEA10;" Style="{StaticResource CirclePrimaryButton}" Name="ChangeFileNameButton" Click="ChangeFileNameButton_Click"  FontSize="16" VerticalAlignment="Center" Grid.Column="1" Margin="10,0,0,0"/>
+                    </Grid>
+                    
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock x:Uid="GroupNameBlock" Style="{StaticResource TipTextStyle}"/>
+                    <TextBox Name="GroupNameTextBox" IsReadOnly="True" HorizontalAlignment="Stretch" Text="{x:Bind GroupName,Mode=OneWay}" Style="{StaticResource BasicTextBox}"/>
+                </StackPanel>
+                <StackPanel Margin="0,20">
+                    <TextBlock x:Uid="Link" Style="{StaticResource TipTextStyle}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Name="LinkTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsReadOnly="True" Text="{x:Bind Link,Mode=OneWay}" Style="{StaticResource BasicTextBox}"/>
+                        <Button Content="&#xE925;" Grid.Column="1" Click="CopyButton_Click"  Name="CopyButton" Style="{StaticResource CirclePrimaryButton}" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Top">
+                        <TextBlock x:Uid="CopyGroup" Style="{StaticResource TipTextStyle}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="CopytoMdButton" Style="{StaticResource CirclePrimaryButton}" Content="&#xE907;" FontSize="18" Click="CopytoMdButton_Click"/>
+                            <Button Name="CopytoHtmlButton" Style="{StaticResource CirclePrimaryButton}" Content="&#xEAE4;" FontSize="18" Margin="10,0,0,0" Click="CopytoHtmlButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                        <TextBlock x:Uid="RPBlock" Style="{StaticResource TipTextStyle}"/>
+                        <TextBlock Text="{x:Bind RP,Mode=OneWay}" Margin="0,5,0,0" Foreground="{ThemeResource SubTextColor}" FontSize="16" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </Grid>
+                
+                
+                <Grid Margin="-5,30,-5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="MoveButton" Margin="5,0" Click="MoveButton_Click"  Style="{StaticResource PrimaryDialogButton}" HorizontalAlignment="Stretch" x:Uid="MoveImageButton"/>
+                    <Button Name="DeleteButton" Grid.Column="1" Margin="5,0" Click="DeleteButton_Click"  Style="{StaticResource DangerDialogButton}" HorizontalAlignment="Stretch" x:Uid="DeleteImageButton"/>
+                    <Button Name="CloseButton" Grid.Column="2" Margin="5,0" Click="CloseButton_Click" Style="{StaticResource DefaultDialogButton}" HorizontalAlignment="Stretch" x:Uid="CloseButton"/>
+                </Grid>
+                
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share.Theme">
+    <AcrylicBrush x:Key="FlyoutBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.5" FallbackColor="#EEE"/>
+    <AcrylicBrush x:Key="PopupBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.3" FallbackColor="#EEE"/>
+    
+    <SolidColorBrush x:Key="MainBackground" Color="#F3F4F8"/>
+    <SolidColorBrush x:Key="MaskColor" Color="#E1E1E3"/>
+    <SolidColorBrush x:Key="HeaderBackground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="HolderIconColor" Color="#DADADB"/>
+    <SolidColorBrush x:Key="SearchBackground" Color="#F3F4F8"/>
+    <SolidColorBrush x:Key="ComboBackground" Color="#EAEBF1"/>
+    <SolidColorBrush x:Key="ComboBackgroundOver" Color="#D8D9DA"/>
+    <SolidColorBrush x:Key="ImportantTextColor" Color="#444849"/>
+    <SolidColorBrush x:Key="SubTextColor" Color="#818181"/>
+    <SolidColorBrush x:Key="TipTextColor" Color="#AFAFAF"/>
+    <SolidColorBrush x:Key="LineColor" Color="#D2D2D2"/>
+    <SolidColorBrush x:Key="LineHoverColor" Color="#B8B5B5"/>
+    <SolidColorBrush x:Key="ProgressBackground" Color="#DCE0EF"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#007AFF"/>
+    <SolidColorBrush x:Key="PrimaryColorOver" Color="#096FDB"/>
+    <SolidColorBrush x:Key="DangerColor" Color="#ED4014"/>
+    <SolidColorBrush x:Key="DangerColorOver" Color="#C92800"/>
+</ResourceDictionary>

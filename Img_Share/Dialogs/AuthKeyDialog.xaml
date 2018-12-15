@@ -1,0 +1,22 @@
+﻿<ContentDialog
+    x:Class="Img_Share.Dialogs.AuthKeyDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource FlyoutBackground}"
+    TitleTemplate="{StaticResource DailogTitle}"
+    PrimaryButtonStyle="{ThemeResource PrimaryDialogButton}"
+    SecondaryButtonStyle="{ThemeResource DefaultDialogButton}"
+    CloseButtonStyle="{ThemeResource DefaultDialogButton}"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel>
+        <TextBlock Name="TipContentBlock" Foreground="{ThemeResource SubTextColor}" FontSize="15" TextWrapping="Wrap" MaxWidth="300" LineHeight="28"/>
+        <HyperlinkButton x:Uid="AuthKeyLinkTip" Foreground="{ThemeResource SubTextColor}" Margin="0,10" Name="AuthKeyLinkButton" Click="AuthKeyLinkButton_Click"/>
+        <TextBox Style="{StaticResource BasicTextBox}" x:Uid="AuthKeyBox" HorizontalAlignment="Stretch" Name="AuthKeyBox" x:FieldModifier="Public"/>
+    </StackPanel>
+</ContentDialog>

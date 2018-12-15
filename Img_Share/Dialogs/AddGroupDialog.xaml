@@ -1,0 +1,21 @@
+﻿<ContentDialog
+    x:Class="Img_Share.Dialogs.AddGroupDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource FlyoutBackground}"
+    TitleTemplate="{StaticResource DailogTitle}"
+    PrimaryButtonStyle="{ThemeResource PrimaryDialogButton}"
+    SecondaryButtonStyle="{ThemeResource DefaultDialogButton}"
+    CloseButtonStyle="{ThemeResource DefaultDialogButton}"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel>
+        <TextBlock x:Uid="AddGroupTip" Foreground="{ThemeResource SubTextColor}" TextWrapping="Wrap" MaxWidth="300" LineHeight="22" FontSize="13" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+        <TextBox Name="GroupInputBox" Style="{StaticResource BasicTextBox}" HorizontalAlignment="Stretch"/>
+    </StackPanel>
+</ContentDialog>

@@ -1,0 +1,193 @@
+﻿<Page
+    x:Class="Img_Share.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:Img_Share.Model"
+    xmlns:model1="using:OneDriveShareImage.Model"
+    xmlns:C7NP="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:C7P="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
+    xmlns:conrols="using:Img_Share.Conrols"
+    SizeChanged="Page_SizeChanged"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <!-- 上传信息模板（上传拖拽区域下方） -->
+        <DataTemplate x:DataType="model:KeyValue" x:Key="UploadInfoTemplate">
+            <StackPanel Width="{x:Bind local:MainPage.Current.UploadInfoWidth,Mode=OneWay}" Padding="12,0,0,0">
+                <TextBlock Text="{x:Bind Key}" Foreground="{ThemeResource TipTextColor}" FontSize="11" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock Text="{x:Bind Value}" Foreground="{ThemeResource SubTextColor}" FontSize="12" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </DataTemplate>
+        
+        <!-- 进度条模板 -->
+        <DataTemplate x:DataType="model:ProgressStatus" x:Key="UploadProgressTemplate">
+            <StackPanel>
+                <TextBlock Text="{x:Bind DisplayName}" Foreground="{ThemeResource SubTextColor}" MaxWidth="{x:Bind local:MainPage.Current.UploadProgressWidth,Mode=OneWay}" TextTrimming="CharacterEllipsis" FontSize="12" Margin="0,0,0,6"/>
+                <RelativePanel>
+                    <Rectangle RelativePanel.AlignVerticalCenterWithPanel="True" Width="{x:Bind local:MainPage.Current.UploadProgressWidth,Mode=OneWay}" Height="9" RadiusX="4.5" RadiusY="4.5" Fill="{ThemeResource ProgressBackground}"/>
+                    <ProgressBar RelativePanel.AlignVerticalCenterWithPanel="True" IsIndeterminate="True" ShowPaused="{x:Bind IsStop}" Width="{x:Bind local:MainPage.Current.UploadProgressWidth,Mode=OneWay}" Foreground="{ThemeResource PrimaryColor}"/>
+                </RelativePanel>
+            </StackPanel>
+        </DataTemplate>
+        
+        <!-- 搜索备选模板 -->
+        <DataTemplate x:DataType="model1:OneDriveImage" x:Key="SeatchItemTemplate">
+            <Grid Width="{x:Bind local:MainPage.Current.SearchBoxWidth,Mode=OneWay}" Padding="15,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock TextTrimming="CharacterEllipsis" Text="{x:Bind ImageName}" VerticalAlignment="Center" Foreground="{ThemeResource ImportantTextColor}" FontSize="14"/>
+                <Border Grid.Column="1" VerticalAlignment="Center" Margin="10" Background="{ThemeResource PrimaryColor}" CornerRadius="3" Padding="6">
+                    <TextBlock Text="{x:Bind GroupName}" FontSize="12" Foreground="White"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        
+        <!-- 图片显示模板 -->
+        <DataTemplate x:DataType="model1:OneDriveImage" x:Key="ImageTemplate">
+            <conrols:MyImage ImageLink="{x:Bind URL}"/>
+        </DataTemplate>
+        
+    </Page.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <Grid Background="{ThemeResource HeaderBackground}" Padding="30,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- LOGO -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="&#xE906;" VerticalAlignment="Center" FontSize="19" Foreground="{ThemeResource TipTextColor}" FontFamily="{StaticResource Icon}"/>
+                <TextBlock Text="Img Share" VerticalAlignment="Center" FontSize="15" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
+            </StackPanel>
+            
+            <!-- 搜索区域 -->
+            <RelativePanel VerticalAlignment="Center" Grid.Column="1" Margin="30,0,0,0" Name="SearchContainer">
+                <Rectangle Width="{x:Bind SearchBackgroundWidth,Mode=OneWay}" VerticalAlignment="Center" Fill="{ThemeResource SearchBackground}" Height="35" RadiusX="17.5" RadiusY="17.5"/>
+                <StackPanel Orientation="Horizontal" Margin="20,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="&#xE900;" VerticalAlignment="Center" FontSize="14" Foreground="{ThemeResource TipTextColor}" FontFamily="{StaticResource Icon}"/>
+                    <TextBox Style="{StaticResource TransparentTextBox}" Name="SearchImgBox" TextChanged="SearchImgBox_TextChanged" VerticalAlignment="Center" Margin="10,0,0,0" PlaceholderText="Search..." Width="{x:Bind SearchBoxWidth,Mode=OneWay}"/>
+                </StackPanel>
+            </RelativePanel>
+            <!-- 搜索备选弹出层 -->
+            <Popup Name="SearchPop" Width="{x:Bind SearchBackgroundWidth,Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Left">
+                <ListView HorizontalAlignment="Stretch"
+                          Width="{x:Bind SearchBoxWidth,Mode=OneWay}"
+                          ItemTemplate="{StaticResource SeatchItemTemplate}"
+                          ItemsSource="{x:Bind SearchResultCollection}"
+                          ItemContainerStyle="{StaticResource BasicListViewItemContainer}"
+                          MaxHeight="400"
+                          IsItemClickEnabled="True"
+                          SelectionMode="None"
+                          Name="SearchResultListView"
+                          ItemClick="SearchResultListView_ItemClick"
+                          Margin="40,40,0,0"
+                          Background="{ThemeResource FlyoutBackground}"
+                          />
+            </Popup>
+        </Grid>
+        
+        <!-- Body -->
+        <Grid Background="{ThemeResource MainBackground}" Grid.Row="1" Padding="30,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" x:Name="UploadColumn" MaxWidth="500"/>
+                <ColumnDefinition Width=".05*" MaxWidth="60"/>
+                <ColumnDefinition Width="1.4*" x:Name="ShowColumn"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- 背景图标（右下角） -->
+            <TextBlock Text="&#xE906;" FontFamily="{StaticResource Icon}" Foreground="{ThemeResource MaskColor}" FontSize="200" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,-40,-30"/>
+            
+            <!-- 上传栏 -->
+            <ScrollViewer Style="{StaticResource BasicScrollViewer}" VerticalScrollBarVisibility="Auto">
+                <StackPanel Width="{x:Bind ShowAreaWidth,Mode=OneWay}">
+                    <!-- 上传框 -->
+                    <Grid AllowDrop="True" Name="UploadArea" DragEnter="UploadArea_DragEnter" Tapped="UploadArea_Tapped" Drop="UploadArea_Drop" CornerRadius="5" Background="{ThemeResource MainBackground}" BorderBrush="{ThemeResource LineColor}" HorizontalAlignment="Left" Width="{x:Bind UploadProgressWidth,Mode=OneWay}" Height="{x:Bind UploadAreaHeight,Mode=OneWay}" BorderThickness="2">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Name="UploadAreaHold">
+                            <TextBlock Text="&#xE902;" FontSize="80" HorizontalAlignment="Center" Foreground="{ThemeResource HolderIconColor}" FontFamily="{StaticResource Icon}"/>
+                            <TextBlock x:Uid="UploadAreaTitle" HorizontalAlignment="Center" TextAlignment="Center" FontFamily="{ThemeResource AppTitle}" Foreground="{ThemeResource SubTextColor}" FontSize="20" Margin="0,10"/>
+                            <TextBlock x:Uid="UploadAreaContent" HorizontalAlignment="Center" TextAlignment="Center" MaxWidth="270" TextWrapping="Wrap" LineHeight="20" Foreground="{ThemeResource TipTextColor}" FontSize="11"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <!-- 上传信息列表 -->
+                    <ListView ItemContainerStyle="{StaticResource BasicListViewItemContainer}" ItemsPanel="{StaticResource HorizontalListViewPanel}"
+                              Name="UploadInfoListView"
+                                   Margin="0,15"
+                              ItemTemplate="{StaticResource UploadInfoTemplate}"
+                              SelectionMode="None"
+                              ItemsSource="{x:Bind UploadInfoCollection}"
+                              ScrollViewer.HorizontalScrollMode="Auto"
+                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                              />
+                    
+                    <!-- 进度条列表 -->
+                    <ListView ItemContainerStyle="{StaticResource BasicListViewItemContainer}"
+                              Name="UploadProgressListView"
+                              ItemTemplate="{StaticResource UploadProgressTemplate}"
+                              SelectionMode="None"
+                              ItemsSource="{x:Bind UploadProgressCollection}"
+                              />
+                </StackPanel>
+            </ScrollViewer>
+            
+            <!-- 图片显示栏 -->
+            <ScrollViewer Style="{StaticResource BasicScrollViewer}" Grid.Column="2" Name="ShowScrollViewer" Padding="0,0,20,0" x:FieldModifier="Public">
+                <StackPanel HorizontalAlignment="Stretch">
+                    
+                    <!-- 最近上传列表 -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="LastestTip" Foreground="{ThemeResource ImportantTextColor}" FontSize="25" FontFamily="{StaticResource AppTitle}" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Style="{StaticResource CirclePrimaryButton}" Name="SettingButton" Content="&#xE994;" Click="SettingButton_Click"/>
+                    </Grid>
+                    <Grid Margin="0,20,0,20">
+                        <GridView Name="LastestListView" ItemsSource="{x:Bind LastestImageCollection}"
+                               SelectionMode="None" ItemTemplate="{StaticResource ImageTemplate}"
+                                  Margin="-15,0"/>
+                        <TextBlock x:Uid="NoData" Name="LastestNoDataTipBlock" FontFamily="{StaticResource AppTitle}" Foreground="{ThemeResource MaskColor}" FontSize="30"/>
+                    </Grid>
+                    
+                    <!-- 组内历史图片记录 -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="HistoryTip" Foreground="{ThemeResource ImportantTextColor}" FontSize="25" FontFamily="{StaticResource AppTitle}" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Margin="20,0,15,0" Style="{StaticResource CirclePrimaryButton}" Name="AddGroupButton" Click="AddGroupButton_Click" Content="&#xEA0A;"/>
+                        <Button Grid.Column="2" Style="{StaticResource PrimaryDialogButton}" Name="ManagerGroupButton" x:Uid="GroupManagerButton" FontSize="11" Click="ManagerGroupButton_Click"/>
+                        <ComboBox Style="{StaticResource GroupComboBox}" Name="GroupCombo" Grid.Column="3" ItemsSource="{x:Bind GroupCollection}" SelectionChanged="GroupCombo_SelectionChanged"/>
+                    </Grid>
+                    <Grid Margin="0,20">
+                        <GridView Name="HistoryGridView"
+                                  ItemsSource="{x:Bind HistoryImageCollection}" ItemTemplate="{StaticResource ImageTemplate}"
+                                  Margin="-15,0"
+                                  SelectionMode="None"/>
+                        <TextBlock x:Uid="NoData" Name="HistoryNoDataTipBlock" FontFamily="{StaticResource AppTitle}" Foreground="{ThemeResource MaskColor}" FontSize="30"/>
+                    </Grid>
+                </StackPanel>
+                
+            </ScrollViewer>
+            
+        </Grid>
+        
+    </Grid>
+</Page>

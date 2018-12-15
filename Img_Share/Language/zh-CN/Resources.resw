@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddImageSuccess" xml:space="preserve">
+    <value>成功添加{count}张图片</value>
+  </data>
+  <data name="AddSuccessTitle" xml:space="preserve">
+    <value>添加成功</value>
+  </data>
+  <data name="AuthErrorContent" xml:space="preserve">
+    <value>请稍后重新完成授权，若不能与OneDrive连接，软件将无法使用</value>
+  </data>
+  <data name="AuthErrorTitle" xml:space="preserve">
+    <value>授权失败</value>
+  </data>
+  <data name="AuthKeyBox.PlaceholderText" xml:space="preserve">
+    <value>输入授权码</value>
+  </data>
+  <data name="AuthKeyEmpty" xml:space="preserve">
+    <value>授权码不能为空！</value>
+  </data>
+  <data name="AuthKeyLinkTip.Content" xml:space="preserve">
+    <value>戳我戳我</value>
+  </data>
+  <data name="AuthKeyTip" xml:space="preserve">
+    <value>好！\n现在还剩下最后一步，你需要输入您的授权密钥。如果您有点懵，请点击下面的链接查看教程</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>授权</value>
+  </data>
+  <data name="AuthorizeCancel" xml:space="preserve">
+    <value>虽然您取消了授权码的填写，不过您依然可以进入软件主页，在下一次上传图片时，软件会再次提醒您输入授权码的哟~😀</value>
+  </data>
+  <data name="AuthorizeSuccess" xml:space="preserve">
+    <value>您的密钥已被记录，它将会嵌入到生成的图片链接中\n您也可以在软件里重新更改您的密钥\n哦！对了！\n欢迎您使用本软件😀</value>
+  </data>
+  <data name="AuthorizeTitle" xml:space="preserve">
+    <value>输入分享密钥</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>创建日期</value>
+  </data>
+  <data name="DefaultTipTitle" xml:space="preserve">
+    <value>软件提示</value>
+  </data>
+  <data name="DefaultUploadInfoTitle" xml:space="preserve">
+    <value>上传信息</value>
+  </data>
+  <data name="GroupDialogTitle" xml:space="preserve">
+    <value>选择一个组</value>
+  </data>
+  <data name="GroupManagerButton.Content" xml:space="preserve">
+    <value>分组管理</value>
+  </data>
+  <data name="HistoryTip.Text" xml:space="preserve">
+    <value>历史记录</value>
+  </data>
+  <data name="ImageCount" xml:space="preserve">
+    <value>上传数目</value>
+  </data>
+  <data name="ImageSize" xml:space="preserve">
+    <value>图片大小</value>
+  </data>
+  <data name="ImageType" xml:space="preserve">
+    <value>图片类型</value>
+  </data>
+  <data name="LastestTip.Text" xml:space="preserve">
+    <value>最近上传</value>
+  </data>
+  <data name="NetworkError1.Text" xml:space="preserve">
+    <value>出错了</value>
+  </data>
+  <data name="NetworkError2.Text" xml:space="preserve">
+    <value>连不上网，怎么办</value>
+  </data>
+  <data name="NoData.Text" xml:space="preserve">
+    <value>惨了，没有图片呢</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="RP" xml:space="preserve">
+    <value>分辨率</value>
+  </data>
+  <data name="StartLinkButton.Content" xml:space="preserve">
+    <value>开始连接</value>
+  </data>
+  <data name="UploadAreaContent.Text" xml:space="preserve">
+    <value>文件将会被上传至您的OneDrive应用文件夹内，已上传图片将在右侧显示。并会自动生成图片链接</value>
+  </data>
+  <data name="UploadAreaTitle.Text" xml:space="preserve">
+    <value>拖拽图片到这里</value>
+  </data>
+  <data name="WaittingTip" xml:space="preserve">
+    <value>请稍候，组件正在加载...</value>
+  </data>
+  <data name="WaitToUpload" xml:space="preserve">
+    <value>请耐心等待当前列表上传完成</value>
+  </data>
+  <data name="Welcome1.Text" xml:space="preserve">
+    <value>热烈欢迎</value>
+  </data>
+  <data name="Welcome2.Text" xml:space="preserve">
+    <value>快来连接OneDrive呀！</value>
+  </data>
+  <data name="AddFailTitle" xml:space="preserve">
+    <value>添加失败</value>
+  </data>
+  <data name="AddImageFailed" xml:space="preserve">
+    <value>共有{count}张图片上传失败</value>
+  </data>
+  <data name="ImageInfoTitle.Text" xml:space="preserve">
+    <value>图片信息</value>
+  </data>
+  <data name="FileName.Text" xml:space="preserve">
+    <value>文件名</value>
+  </data>
+  <data name="Link.Text" xml:space="preserve">
+    <value>链接地址</value>
+  </data>
+  <data name="CloseButton.Content" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="NotExist" xml:space="preserve">
+    <value>图片链接已失效</value>
+  </data>
+  <data name="CopyGroup.Text" xml:space="preserve">
+    <value>其它复制</value>
+  </data>
+  <data name="CopyToHTML" xml:space="preserve">
+    <value>复制为Img标签</value>
+  </data>
+  <data name="CopyToMarkdown" xml:space="preserve">
+    <value>复制为Markdown链接</value>
+  </data>
+  <data name="SelectGroupTip.Text" xml:space="preserve">
+    <value>你打算把这些图片放在哪里呢？请选择</value>
+  </data>
+  <data name="AddGroupSuccess" xml:space="preserve">
+    <value>添加分组成功！</value>
+  </data>
+  <data name="AddGroupTip.Text" xml:space="preserve">
+    <value>添加一个图片分组，注意，组名不能重复哦（忽视大小写）</value>
+  </data>
+  <data name="AddGroupTitle" xml:space="preserve">
+    <value>添加分组</value>
+  </data>
+  <data name="AllSize" xml:space="preserve">
+    <value>总文件大小</value>
+  </data>
+  <data name="GroupName" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="GroupNameEmpty" xml:space="preserve">
+    <value>组名不能为空！</value>
+  </data>
+  <data name="GroupNameRepeat" xml:space="preserve">
+    <value>组名重复！</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DeleteGroupSuccess" xml:space="preserve">
+    <value>组已经被成功删除</value>
+  </data>
+  <data name="DeleteGroupTip" xml:space="preserve">
+    <value>您将删除这个组，组内的图片也会被波及，是否确定要这么做？\n如果您想给图片挪个窝，请选择 -转移图片- 图片转移后，将删除空组</value>
+  </data>
+  <data name="DeleteGroupTitle" xml:space="preserve">
+    <value>删除分组</value>
+  </data>
+  <data name="DeleteImageButton.Content" xml:space="preserve">
+    <value>删除图片</value>
+  </data>
+  <data name="DeleteImageSuccess" xml:space="preserve">
+    <value>成功删除{count}张图片</value>
+  </data>
+  <data name="GroupRenameSuccess" xml:space="preserve">
+    <value>组名已修改</value>
+  </data>
+  <data name="ManagerGroupTitle.Text" xml:space="preserve">
+    <value>分组管理</value>
+  </data>
+  <data name="MoveImage" xml:space="preserve">
+    <value>转移图片</value>
+  </data>
+  <data name="MoveImageButton.Content" xml:space="preserve">
+    <value>转移图片</value>
+  </data>
+  <data name="MoveImageSuccess" xml:space="preserve">
+    <value>图片转移成功</value>
+  </data>
+  <data name="Sao" xml:space="preserve">
+    <value>操作太骚，执行失败</value>
+  </data>
+  <data name="Deleting" xml:space="preserve">
+    <value>正在删除，请稍候...</value>
+  </data>
+  <data name="GroupNameBlock.Text" xml:space="preserve">
+    <value>组名</value>
+  </data>
+  <data name="OnlyOneGroup" xml:space="preserve">
+    <value>就剩一个组了，不能再删了啊！陛下！</value>
+  </data>
+  <data name="SettingTitle.Text" xml:space="preserve">
+    <value>设置选项</value>
+  </data>
+  <data name="AuthKeyTitle.Text" xml:space="preserve">
+    <value>授权码</value>
+  </data>
+  <data name="AuthorizeChangeSuccess" xml:space="preserve">
+    <value>授权码修改成功</value>
+  </data>
+  <data name="AuthorizeChangeTip" xml:space="preserve">
+    <value>您已更改了授权码，是否将该改动应用于之前上传的图片中？</value>
+  </data>
+  <data name="AuthorizeChangeTitle" xml:space="preserve">
+    <value>更改授权码</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="RPBlock.Text" xml:space="preserve">
+    <value>分辨率</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="AddPrefixTitle.Text" xml:space="preserve">
+    <value>批量添加图片前缀</value>
+  </data>
+  <data name="AddPrefixTipContent" xml:space="preserve">
+    <value>即将为{group}分组内的{count}张图片添加 ‘{prefix}’ 前缀，是否确认？</value>
+  </data>
+  <data name="AddPrefixTipTitle" xml:space="preserve">
+    <value>添加图片前缀</value>
+  </data>
+  <data name="CopiedImg" xml:space="preserve">
+    <value>已复制IMG标签</value>
+  </data>
+  <data name="CopiedLink" xml:space="preserve">
+    <value>已复制URL</value>
+  </data>
+  <data name="CopiedMd" xml:space="preserve">
+    <value>已复制Markdown链接</value>
+  </data>
+  <data name="DeleteImageTipContent" xml:space="preserve">
+    <value>您确定要删除这张图片吗？删除后，所有相关链接都将失效</value>
+  </data>
+  <data name="DeleteImageTipTitle" xml:space="preserve">
+    <value>删除图片</value>
+  </data>
+  <data name="FileNameChangeSuccess" xml:space="preserve">
+    <value>文件名修改成功！</value>
+  </data>
+  <data name="FileNameErrorExtends" xml:space="preserve">
+    <value>文件名格式错误，未提供正确的扩展名</value>
+  </data>
+  <data name="IsFirstImage" xml:space="preserve">
+    <value>这已经是第一张啦！</value>
+  </data>
+  <data name="IsLastImage" xml:space="preserve">
+    <value>这已经是最后一张啦！</value>
+  </data>
+  <data name="NoImageTip" xml:space="preserve">
+    <value>该分组内没有图片哟~</value>
+  </data>
+  <data name="PrefixEmpty" xml:space="preserve">
+    <value>前缀不能为空</value>
+  </data>
+  <data name="PrefixNotAllow" xml:space="preserve">
+    <value>前缀中包含非法字符</value>
+  </data>
+  <data name="UseGuideButton.Content" xml:space="preserve">
+    <value>软件说明</value>
+  </data>
+  <data name="WaitToChange" xml:space="preserve">
+    <value>请等待软件完成更改...</value>
+  </data>
+  <data name="OpenSourceButton" xml:space="preserve">
+    <value>开源地址</value>
+  </data>
+  <data name="UseInfoButton" xml:space="preserve">
+    <value>软件说明</value>
+  </data>
+</root>

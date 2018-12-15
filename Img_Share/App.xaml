@@ -1,0 +1,19 @@
+﻿<Application
+    x:Class="Img_Share.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Img_Share">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Template/Text.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Template/ControlTemplate.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary Source="ms-appx:///Theme/Light.xaml" x:Key="Light"/>
+                <ResourceDictionary Source="ms-appx:///Theme/Dark.xaml" x:Key="Dark"/>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

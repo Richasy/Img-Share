@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddFailTitle" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="AddImageFailed" xml:space="preserve">
+    <value>Failure to add {count} pictures</value>
+  </data>
+  <data name="AddImageSuccess" xml:space="preserve">
+    <value>Successfully add {count} pictures</value>
+  </data>
+  <data name="AddSuccessTitle" xml:space="preserve">
+    <value>Successfully</value>
+  </data>
+  <data name="AuthErrorContent" xml:space="preserve">
+    <value>Please re-authorize later. If you can't connect to OneDrive, the software will not be available.</value>
+  </data>
+  <data name="AuthErrorTitle" xml:space="preserve">
+    <value>Authorization failure</value>
+  </data>
+  <data name="AuthKeyBox.PlaceholderText" xml:space="preserve">
+    <value>Input key</value>
+  </data>
+  <data name="AuthKeyEmpty" xml:space="preserve">
+    <value>Authorization Key can't be empty!</value>
+  </data>
+  <data name="AuthKeyLinkTip.Content" xml:space="preserve">
+    <value>Click Me!</value>
+  </data>
+  <data name="AuthKeyTip" xml:space="preserve">
+    <value>Good! \nNow there's the last step. You need to enter your authorization key. If you are a little confused, please click the link below to view the tutorial (Chinese).</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>Authorize</value>
+  </data>
+  <data name="AuthorizeCancel" xml:space="preserve">
+    <value>Although you cancelled the authorization code, you can still enter the software homepage. The next time you upload the picture, the software will remind you to enter the authorization code again.😀</value>
+  </data>
+  <data name="AuthorizeSuccess" xml:space="preserve">
+    <value>Your key has been recorded\nIt will be embedded in the generated image link, you can also change your key in the software. \nOh! By the way!\nWelcome to use this software😀</value>
+  </data>
+  <data name="AuthorizeTitle" xml:space="preserve">
+    <value>AuthKey</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DefaultTipTitle" xml:space="preserve">
+    <value>App Tip</value>
+  </data>
+  <data name="DefaultUploadInfoTitle" xml:space="preserve">
+    <value>Upload Info</value>
+  </data>
+  <data name="GroupDialogTitle" xml:space="preserve">
+    <value>Choose a Group</value>
+  </data>
+  <data name="GroupManagerButton.Content" xml:space="preserve">
+    <value>Group Manager</value>
+  </data>
+  <data name="HistoryTip.Text" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="ImageCount" xml:space="preserve">
+    <value>Upload Count</value>
+  </data>
+  <data name="ImageSize" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="ImageType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="LastestTip.Text" xml:space="preserve">
+    <value>Recently</value>
+  </data>
+  <data name="NetworkError1.Text" xml:space="preserve">
+    <value>Oooops!</value>
+  </data>
+  <data name="NetworkError2.Text" xml:space="preserve">
+    <value>Network connection error, what happened</value>
+  </data>
+  <data name="NoData.Text" xml:space="preserve">
+    <value>Ooops! No Image!</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="RP" xml:space="preserve">
+    <value>R.P.</value>
+  </data>
+  <data name="StartLinkButton.Content" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="UploadAreaContent.Text" xml:space="preserve">
+    <value>Files will be uploaded to your OneDrive application folder, and uploaded images will be displayed on the right. And automatically generate image links</value>
+  </data>
+  <data name="UploadAreaTitle.Text" xml:space="preserve">
+    <value>Drop Image Here</value>
+  </data>
+  <data name="WaittingTip" xml:space="preserve">
+    <value>One moment please...</value>
+  </data>
+  <data name="WaitToUpload" xml:space="preserve">
+    <value>Please wait patiently for the current list to be uploaded.</value>
+  </data>
+  <data name="Welcome1.Text" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Welcome2.Text" xml:space="preserve">
+    <value>One~Drive~Link~🎵</value>
+  </data>
+  <data name="ImageInfoTitle.Text" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="FileName.Text" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="Link.Text" xml:space="preserve">
+    <value>Link Address</value>
+  </data>
+  <data name="CloseButton.Content" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Already copied</value>
+  </data>
+  <data name="NotExist" xml:space="preserve">
+    <value>Picture Link Failed</value>
+  </data>
+  <data name="CopyGroup.Text" xml:space="preserve">
+    <value>Other Copy Options</value>
+  </data>
+  <data name="CopyToHTML" xml:space="preserve">
+    <value>Copy to Img Tag</value>
+  </data>
+  <data name="CopyToMarkdown" xml:space="preserve">
+    <value>Copy to Markdown Link</value>
+  </data>
+  <data name="SelectGroupTip.Text" xml:space="preserve">
+    <value>Where are you going to put these pictures? Please choose</value>
+  </data>
+  <data name="AddGroupSuccess" xml:space="preserve">
+    <value>Add Groups Successfully!</value>
+  </data>
+  <data name="AddGroupTip.Text" xml:space="preserve">
+    <value>Add a group of pictures, note that the group name can not be repeated (ignore case)</value>
+  </data>
+  <data name="AddGroupTitle" xml:space="preserve">
+    <value>Add Group</value>
+  </data>
+  <data name="AllSize" xml:space="preserve">
+    <value>All Size</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteGroupSuccess" xml:space="preserve">
+    <value>Group has been deleted successfully</value>
+  </data>
+  <data name="DeleteGroupTip" xml:space="preserve">
+    <value>You will delete this group, and the pictures in the group will also be affected. Are you sure you want to do this? If you want to change the position of the picture, please select - Transfer - After the transfer of the picture, the empty group will be deleted.</value>
+  </data>
+  <data name="DeleteGroupTitle" xml:space="preserve">
+    <value>Delete Group</value>
+  </data>
+  <data name="DeleteImageButton.Content" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteImageSuccess" xml:space="preserve">
+    <value>Successful deletion of {count} pictures</value>
+  </data>
+  <data name="GroupName" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="GroupNameEmpty" xml:space="preserve">
+    <value>Group name cannot be empty!</value>
+  </data>
+  <data name="GroupNameRepeat" xml:space="preserve">
+    <value>Group name repeat!</value>
+  </data>
+  <data name="GroupRenameSuccess" xml:space="preserve">
+    <value>Group name has been modified.</value>
+  </data>
+  <data name="ManagerGroupTitle.Text" xml:space="preserve">
+    <value>Group Manager</value>
+  </data>
+  <data name="MoveImage" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="MoveImageButton.Content" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="MoveImageSuccess" xml:space="preserve">
+    <value>Image transfer successful</value>
+  </data>
+  <data name="Sao" xml:space="preserve">
+    <value>Cool operation, failed execution</value>
+  </data>
+  <data name="OnlyOneGroup" xml:space="preserve">
+    <value>There's only one group left. It can't be deleted any more. Your majesty!</value>
+  </data>
+  <data name="Deleting" xml:space="preserve">
+    <value>Just a moment, please. It's being deleted.</value>
+  </data>
+  <data name="GroupNameBlock.Text" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+  <data name="SettingTitle.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="AuthKeyTitle.Text" xml:space="preserve">
+    <value>AuthKey</value>
+  </data>
+  <data name="AuthorizeChangeSuccess" xml:space="preserve">
+    <value>Successful modification of AuthKey</value>
+  </data>
+  <data name="AuthorizeChangeTip" xml:space="preserve">
+    <value>You have changed the AuthKey. Do you apply the change to the previously uploaded image?</value>
+  </data>
+  <data name="AuthorizeChangeTitle" xml:space="preserve">
+    <value>Change AuthKey</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="RPBlock.Text" xml:space="preserve">
+    <value>R.P.</value>
+  </data>
+  <data name="AddPrefixTitle.Text" xml:space="preserve">
+    <value>Bulk Addition of Picture Prefixes</value>
+  </data>
+  <data name="AddPrefixTipContent" xml:space="preserve">
+    <value>Are you sure that the prefix '{prefix}' will be added to the {count} picture in the {group} group?</value>
+  </data>
+  <data name="AddPrefixTipTitle" xml:space="preserve">
+    <value>Add Prefix</value>
+  </data>
+  <data name="DeleteImageTipContent" xml:space="preserve">
+    <value>Are you sure you want to delete this picture? After deletion, all relevant links will fail</value>
+  </data>
+  <data name="DeleteImageTipTitle" xml:space="preserve">
+    <value>Delete Image</value>
+  </data>
+  <data name="FileNameChangeSuccess" xml:space="preserve">
+    <value>Successful file name modification!</value>
+  </data>
+  <data name="FileNameErrorExtends" xml:space="preserve">
+    <value>File name format error, not providing the correct extension</value>
+  </data>
+  <data name="IsFirstImage" xml:space="preserve">
+    <value>This is the first picture!</value>
+  </data>
+  <data name="IsLastImage" xml:space="preserve">
+    <value>This is the last picture!</value>
+  </data>
+  <data name="PrefixEmpty" xml:space="preserve">
+    <value>The prefix cannot be empty</value>
+  </data>
+  <data name="PrefixNotAllow" xml:space="preserve">
+    <value>The prefix contains illegal characters</value>
+  </data>
+  <data name="UseGuideButton.Content" xml:space="preserve">
+    <value>Software documentation (zh-CN)</value>
+  </data>
+  <data name="WaitToChange" xml:space="preserve">
+    <value>Please wait for the software to complete the change...</value>
+  </data>
+  <data name="CopiedImg" xml:space="preserve">
+    <value>Replicated IMG Tags</value>
+  </data>
+  <data name="CopiedLink" xml:space="preserve">
+    <value>URL has been copied.</value>
+  </data>
+  <data name="CopiedMd" xml:space="preserve">
+    <value>Copied Markdown link</value>
+  </data>
+  <data name="OpenSourceButton" xml:space="preserve">
+    <value>Open Source Link</value>
+  </data>
+  <data name="UseInfoButton" xml:space="preserve">
+    <value>How to use?</value>
+  </data>
+</root>
