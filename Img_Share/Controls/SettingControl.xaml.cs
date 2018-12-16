@@ -271,7 +271,7 @@ namespace Img_Share.Controls
         private async void UseInfoButton_Click(object sender, RoutedEventArgs e)
         {
             // 应用说明书
-            await Launcher.LaunchUriAsync(new Uri("https://blog.richasy.cn/document/imgshare/"));
+            await Launcher.LaunchUriAsync(new Uri("https://blog.richasy.cn/document/pictureshare/"));
         }
     }
 }

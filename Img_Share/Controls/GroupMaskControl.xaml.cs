@@ -129,6 +129,11 @@ namespace Img_Share.Controls
                     else
                     {
                         item.GroupName = name;
+                        var images = App.Db.Images.Where(p => p.GroupId == item.GroupId);
+                        foreach (var img in images)
+                        {
+                            img.GroupName = name;
+                        }
                         await App.Db.SaveChangesAsync();
                         AppTools.WriteLocalSetting(AppSettings.IsDatabaseChanged, "True");
                         new PopupMaskTip(AppTools.GetReswLanguage("GroupRenameSuccess")).Show();

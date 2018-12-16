@@ -405,4 +405,7 @@
   <data name="UseInfoButton" xml:space="preserve">
     <value>How to use?</value>
   </data>
+  <data name="NoImageTip" xml:space="preserve">
+    <value>There are no pictures in this group.</value>
+  </data>
 </root>
