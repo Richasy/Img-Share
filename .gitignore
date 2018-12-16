@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs/Img_Share/v15
+/Img_Share/bin/x86/Debug
+/Img_Share/obj
+/OneDriveShareImage/bin
+/OneDriveShareImage/obj
+/Tools/bin
+/Tools/obj
