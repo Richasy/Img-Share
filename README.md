@@ -3,15 +3,19 @@
 > Thanks for [Windows Community Toolkits](https://github.com/windows-toolkit/WindowsCommunityToolkit).  
 > The OneDrive service they provide is the core component of the software.
 
+> The original name of the application is **Img Share**. Because it cannot be updated in the Microsoft Store, it is abandoned and a new application called ***Picture Share*** is created.
+
 ## Function description
 
-`Image Share` is used to upload pictures to OneDrive and then share the pictures to get links that can be accessed directly. Usually used as embedded pictures for web pages, such as blogging.
+`Img Share` is used to upload pictures to OneDrive and then share the pictures to get links that can be accessed directly. Usually used as embedded pictures for web pages, such as blogging.
 
-![AppShot](http://storage.live.com/items/51816931BAB0F7A8!8872?authkey=AO7QXpgYo7-5DUU)
+![AppShot](http://storage.live.com/items/51816931BAB0F7A8!8900?authkey=AO7QXpgYo7-5DUU)
 
 The app is already on the shelf in Microsoft's App Store.
 
-Here is the address: [Microsoft Store](https://www.microsoft.com/store/productId/9NCXNZ52G9Q8)
+Here is the address: ~~[Microsoft Store](https://www.microsoft.com/store/productId/9NCXNZ52G9Q8)~~
+
+If you want to see the instructions of the software, please click here: [Richasy Blog]("https://blog.richasy.cn/document/pictureshare/")
 
 ## Development environment
 
