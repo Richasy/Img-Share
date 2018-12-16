@@ -128,22 +128,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\GroupMaskControl.xaml.cs">
+    <Compile Include="Controls\GroupMaskControl.xaml.cs">
       <DependentUpon>GroupMaskControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\HoldMaskTip.xaml.cs">
+    <Compile Include="Controls\HoldMaskTip.xaml.cs">
       <DependentUpon>HoldMaskTip.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\ImageMaskControl.xaml.cs">
+    <Compile Include="Controls\ImageMaskControl.xaml.cs">
       <DependentUpon>ImageMaskControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\MyImage.xaml.cs">
+    <Compile Include="Controls\MyImage.xaml.cs">
       <DependentUpon>MyImage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\PopupMaskTip.xaml.cs">
+    <Compile Include="Controls\PopupMaskTip.xaml.cs">
       <DependentUpon>PopupMaskTip.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Conrols\SettingControl.xaml.cs">
+    <Compile Include="Controls\SettingControl.xaml.cs">
       <DependentUpon>SettingControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AddGroupDialog.xaml.cs">
@@ -256,27 +256,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Conrols\GroupMaskControl.xaml">
+    <Page Include="Controls\GroupMaskControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Conrols\HoldMaskTip.xaml">
+    <Page Include="Controls\HoldMaskTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Conrols\ImageMaskControl.xaml">
+    <Page Include="Controls\ImageMaskControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Conrols\MyImage.xaml">
+    <Page Include="Controls\MyImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Conrols\PopupMaskTip.xaml">
+    <Page Include="Controls\PopupMaskTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Conrols\SettingControl.xaml">
+    <Page Include="Controls\SettingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

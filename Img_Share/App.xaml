@@ -6,14 +6,14 @@
     <Application.Resources>
         <ResourceDictionary>
             
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ms-appx:///Template/Text.xaml"/>
-                <ResourceDictionary Source="ms-appx:///Template/ControlTemplate.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary Source="ms-appx:///Theme/Light.xaml" x:Key="Light"/>
                 <ResourceDictionary Source="ms-appx:///Theme/Dark.xaml" x:Key="Dark"/>
             </ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Template/Text.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Template/ControlTemplate.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

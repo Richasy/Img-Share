@@ -1,4 +1,4 @@
-﻿using Img_Share.Conrols;
+﻿using Img_Share.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;

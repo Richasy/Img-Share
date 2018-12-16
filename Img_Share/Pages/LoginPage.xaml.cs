@@ -1,4 +1,4 @@
-﻿using Img_Share.Conrols;
+﻿using Img_Share.Controls;
 using Img_Share.Dialogs;
 using System;
 using System.Linq;
