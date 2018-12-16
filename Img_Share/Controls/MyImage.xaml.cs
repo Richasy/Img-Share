@@ -74,7 +74,6 @@ namespace Img_Share.Controls
         private void ImageBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ImageBlockMouseDown.Begin();
-            ImageBlockMouseDown.Completed += ((_s, _e) => { ImageBlockMouseUp.Begin(); });
             var imgTemp = App.Db.Images.Where(p => p.URL == ImageLink).ToList();
             var img = new OneDriveImage();
             if (imgTemp.Count > 0)
@@ -148,6 +147,11 @@ namespace Img_Share.Controls
             dp.SetText(str);
             Clipboard.SetContent(dp);
             new PopupMaskTip(AppTools.GetReswLanguage(tipKey)).Show();
+        }
+
+        private void ImageBlockMouseDown_Completed(object sender, object e)
+        {
+            ImageBlockMouseUp.Begin();
         }
     }
 }

@@ -10,7 +10,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
     <UserControl.Resources>
-        <Storyboard x:Key="ImageBlockMouseDown" Storyboard.TargetName="ImageScale" x:Name="ImageBlockMouseDown" >
+        <Storyboard x:Key="ImageBlockMouseDown" Storyboard.TargetName="ImageScale" x:Name="ImageBlockMouseDown" Completed="ImageBlockMouseDown_Completed" >
             <DoubleAnimation Duration="0:0:.1" From="1" To="0.9" Storyboard.TargetProperty="ScaleX">
                 <DoubleAnimation.EasingFunction>
                     <QuadraticEase EasingMode="EaseIn"/>
