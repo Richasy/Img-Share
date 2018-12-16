@@ -1,4 +1,4 @@
-﻿using Img_Share.Conrols;
+﻿using Img_Share.Controls;
 using OneDriveShareImage.Model;
 using System;
 using System.Collections.Generic;
