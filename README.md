@@ -13,7 +13,7 @@
 
 The app is already on the shelf in Microsoft's App Store.
 
-Here is the address: ~~[Microsoft Store](https://www.microsoft.com/store/productId/9NCXNZ52G9Q8)~~
+Here is the address: [Microsoft Store](https://www.microsoft.com/store/productId/9PHWZ3QL0HN3)
 
 If you want to see the instructions of the software, please click here: [Richasy Blog](https://blog.richasy.cn/document/pictureshare/)
 
