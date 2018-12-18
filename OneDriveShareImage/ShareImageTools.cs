@@ -414,7 +414,7 @@ namespace OneDriveShareImage
             string ImageAuthkey = AppTools.GetLocalSetting(AppSettings.AuthKey, "");
             if (!String.IsNullOrEmpty(id) && !String.IsNullOrEmpty(ImageAuthkey))
             {
-                return $"http://storage.live.com/items/{id}?authkey={ImageAuthkey}";
+                return $"https://storage.live.com/items/{id}?authkey={ImageAuthkey}";
             }
             return null;
         }
