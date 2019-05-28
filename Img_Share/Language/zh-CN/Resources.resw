@@ -208,7 +208,7 @@
     <value>开始连接</value>
   </data>
   <data name="UploadAreaContent.Text" xml:space="preserve">
-    <value>文件将会被上传至您的OneDrive应用文件夹内，已上传图片将在右侧显示。并会自动生成图片链接</value>
+    <value>文件将会被上传至您的OneDrive应用文件夹内，已上传图片将在右侧显示。并会自动生成图片链接。右键或长按可选择从剪切板粘贴图片</value>
   </data>
   <data name="UploadAreaTitle.Text" xml:space="preserve">
     <value>拖拽图片到这里</value>

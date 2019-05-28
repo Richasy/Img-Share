@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="60520B029E250.ImgShare" Publisher="CN=zar23" Version="1.0.6.0" />
-  <mp:PhoneIdentity PhoneProductId="280303fa-948a-4c13-9766-48a40e61d974" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="60520B029E250.PictureShare" Publisher="CN=9EFA2047-A580-400B-A5B2-0C7ABB0DB5C0" Version="1.0.7.0" />
+  <mp:PhoneIdentity PhoneProductId="8c351bc3-0bf5-4437-8f02-0dc46b19462f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Img Share</DisplayName>
+    <DisplayName>Picture Share</DisplayName>
     <PublisherDisplayName>云之幻</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Img_Share.App">
-      <uap:VisualElements DisplayName="Img Share" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Img_Share" BackgroundColor="#3567C1">
+      <uap:VisualElements DisplayName="Picture Share" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Img_Share"  BackgroundColor="transparent">
         <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Img Share" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
@@ -25,7 +25,7 @@
             <uap:ShowOn Tile="square310x310Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#3567C1" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>

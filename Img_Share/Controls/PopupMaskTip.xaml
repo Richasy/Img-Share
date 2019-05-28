@@ -75,7 +75,7 @@
                 <TranslateTransform Y="-10"></TranslateTransform>
             </StackPanel.RenderTransform>
 
-            <TextBlock Name="PopupContent" TextAlignment="Center" Foreground="White" FontSize="12"></TextBlock>
+            <TextBlock Name="PopupContent" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" FontSize="12"></TextBlock>
 
         </StackPanel>
 

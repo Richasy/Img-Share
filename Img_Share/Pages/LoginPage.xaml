@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="" FontSize="300" FontFamily="{StaticResource Icon}" Foreground="{ThemeResource MaskColor}" Grid.RowSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,15,50"/>
+        <!--<TextBlock Text="" FontSize="300" FontFamily="{StaticResource Icon}" Foreground="{ThemeResource MaskColor}" Grid.RowSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,15,50"/>-->
         <StackPanel HorizontalAlignment="Left">
             <Rectangle Width="125" Height="12" Fill="{ThemeResource LineColor}" HorizontalAlignment="Left"/>
             <TextBlock Foreground="{ThemeResource ImportantTextColor}" TextWrapping="Wrap" FontFamily="{StaticResource AppTitle}" Margin="0,30,0,10" x:Uid="Welcome1" FontSize="60"/>
@@ -30,7 +30,8 @@
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-            <TextBlock Text="" VerticalAlignment="Center" FontSize="35" Foreground="{ThemeResource TipTextColor}" FontFamily="{StaticResource Icon}"/>
+            <!--<TextBlock Text="" VerticalAlignment="Center" FontSize="35" Foreground="{ThemeResource TipTextColor}" FontFamily="{StaticResource Icon}"/>-->
+            <Image Name="AppIcon" Width="35" VerticalAlignment="Center"/>
             <TextBlock Text="Img Share" VerticalAlignment="Center" FontSize="23" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
         </StackPanel>
     </Grid>

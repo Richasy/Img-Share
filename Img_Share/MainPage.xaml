@@ -74,7 +74,7 @@
             </Grid.ColumnDefinitions>
             <!-- LOGO -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBlock Text="&#xE906;" VerticalAlignment="Center" FontSize="19" Foreground="{ThemeResource TipTextColor}" FontFamily="{StaticResource Icon}"/>
+                <Image Name="AppIcon" Width="20" VerticalAlignment="Center"/>
                 <TextBlock Text="Img Share" VerticalAlignment="Center" FontSize="15" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
             </StackPanel>
             
@@ -112,17 +112,14 @@
                 <ColumnDefinition Width=".05*" MaxWidth="60"/>
                 <ColumnDefinition Width="1.4*" x:Name="ShowColumn"/>
             </Grid.ColumnDefinitions>
-            
-            <!-- 背景图标（右下角） -->
-            <TextBlock Text="&#xE906;" FontFamily="{StaticResource Icon}" Foreground="{ThemeResource MaskColor}" FontSize="200" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,-40,-30"/>
-            
+
             <!-- 上传栏 -->
             <ScrollViewer Style="{StaticResource BasicScrollViewer}" VerticalScrollBarVisibility="Auto">
                 <StackPanel Width="{x:Bind ShowAreaWidth,Mode=OneWay}">
                     <!-- 上传框 -->
-                    <Grid AllowDrop="True" Name="UploadArea" DragEnter="UploadArea_DragEnter" Tapped="UploadArea_Tapped" RightTapped="UploadArea_RightTapped" Drop="UploadArea_Drop" CornerRadius="5" Background="{ThemeResource MainBackground}" BorderBrush="{ThemeResource LineColor}" HorizontalAlignment="Left" Width="{x:Bind UploadProgressWidth,Mode=OneWay}" Height="{x:Bind UploadAreaHeight,Mode=OneWay}" BorderThickness="2">
+                    <Grid AllowDrop="True" Name="UploadArea" DragEnter="UploadArea_DragEnter" Tapped="UploadArea_Tapped" RightTapped="UploadArea_RightTapped" Holding="UploadArea_Holding" Drop="UploadArea_Drop" CornerRadius="5" Background="{ThemeResource MainBackground}" BorderBrush="{ThemeResource LineColor}" HorizontalAlignment="Left" Width="{x:Bind UploadProgressWidth,Mode=OneWay}" Height="{x:Bind UploadAreaHeight,Mode=OneWay}" BorderThickness="2">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Name="UploadAreaHold">
-                            <TextBlock Text="&#xE902;" FontSize="80" HorizontalAlignment="Center" Foreground="{ThemeResource HolderIconColor}" FontFamily="{StaticResource Icon}"/>
+                            <Image Name="UploadIcon" Width="80" VerticalAlignment="Center"/>
                             <TextBlock x:Uid="UploadAreaTitle" HorizontalAlignment="Center" TextAlignment="Center" FontFamily="{ThemeResource AppTitle}" Foreground="{ThemeResource SubTextColor}" FontSize="20" Margin="0,10"/>
                             <TextBlock x:Uid="UploadAreaContent" HorizontalAlignment="Center" TextAlignment="Center" MaxWidth="270" TextWrapping="Wrap" LineHeight="20" Foreground="{ThemeResource TipTextColor}" FontSize="11"/>
                         </StackPanel>
@@ -150,7 +147,7 @@
             </ScrollViewer>
             
             <!-- 图片显示栏 -->
-            <ScrollViewer Style="{StaticResource BasicScrollViewer}" Grid.Column="2" Name="ShowScrollViewer" Padding="0,0,20,0" x:FieldModifier="Public">
+            <ScrollViewer VerticalScrollMode="Auto" Style="{StaticResource BasicScrollViewer}" Grid.Column="2" Name="ShowScrollViewer" Padding="0,0,20,0" x:FieldModifier="Public">
                 <StackPanel HorizontalAlignment="Stretch">
                     
                     <!-- 最近上传列表 -->

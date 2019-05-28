@@ -359,17 +359,66 @@
     <Language Code="zu-za" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>60520B029E250.ImgShare</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.PictureShare</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>Img Share</ReservedName>
+      <ReservedName>Picture Share</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>60520B029E250.AcrylicMarkdown</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.Eyepetizer</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.ImgShare</MainPackageIdentityName>
     <MainPackageIdentityName>60520B029E250.KeyValue</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.MarkdownLite</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.RichBox</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.RSSStalker</MainPackageIdentityName>
     <MainPackageIdentityName>60520B029E250.Styleguide</MainPackageIdentityName>
     <MainPackageIdentityName>60520B029E250.WFA</MainPackageIdentityName>
     <MainPackageIdentityName>60520B029E250.WarframeAlertingPrime</MainPackageIdentityName>
+    <MainPackageIdentityName>60520B029E250.UWP</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NCXNZ52G9Q8" />
+  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9PHWZ3QL0HN3">
+    <BundleInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>X86</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>X64</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Arm</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>0.0.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.5.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+    </BundleInfo>
+  </PackageInfoList>
 </StoreAssociation>

@@ -214,7 +214,7 @@
     <value>Start</value>
   </data>
   <data name="UploadAreaContent.Text" xml:space="preserve">
-    <value>Files will be uploaded to your OneDrive application folder, and uploaded images will be displayed on the right. And automatically generate image links</value>
+    <value>Files will be uploaded to your OneDrive application folder, and uploaded images will be displayed on the right. And automatically generate image links. Right tapped or holding could paste from clipboard</value>
   </data>
   <data name="UploadAreaTitle.Text" xml:space="preserve">
     <value>Drop Image Here</value>

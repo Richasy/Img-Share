@@ -22,6 +22,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -168,7 +169,12 @@ namespace Img_Share
             UploadInfoCollection.Add(new KeyValue(AppTools.GetReswLanguage("ImageSize"), AppTools.GetReswLanguage("None")));
             UploadInfoCollection.Add(new KeyValue(AppTools.GetReswLanguage("ImageType"), AppTools.GetReswLanguage("None")));
             UploadInfoCollection.Add(new KeyValue(AppTools.GetReswLanguage("CreateDate"), AppTools.GetReswLanguage("None")));
-            WaittingTip.Show();
+            string theme = App.Current.RequestedTheme.ToString();
+            var image = new BitmapImage();
+            image.UriSource = new Uri($"ms-appx:///Assets/{theme}.png");
+            AppIcon.Source = image;
+            UploadIcon.Source = image;
+            //WaittingTip.Show();
             OneDriveInit();
             // 建立数据库连接
             try
@@ -409,7 +415,7 @@ namespace Img_Share
             if(IsHistoryImageInit && IsLastImagesInit)
             {
                 isInit = true;
-                WaittingTip.Close();
+                //WaittingTip.Close();
             }
         }
 
@@ -962,6 +968,11 @@ namespace Img_Share
         }
 
         private void UploadArea_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            UploadAreaMenuFlyout.ShowAt(sender as FrameworkElement, e.GetPosition(sender as FrameworkElement));
+        }
+
+        private void UploadArea_Holding(object sender, HoldingRoutedEventArgs e)
         {
             UploadAreaMenuFlyout.ShowAt(sender as FrameworkElement, e.GetPosition(sender as FrameworkElement));
         }

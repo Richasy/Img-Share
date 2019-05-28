@@ -141,7 +141,7 @@
                     </StackPanel>
                     <StackPanel Margin="0,20,0,0">
                         <TextBlock x:Uid="AutoRenameTitle" Style="{StaticResource TipTextStyle}"/>
-                        <ToggleSwitch Name="AutoRenameSwitch" Toggled="AutoRenameSwitch_Toggled"/>
+                        <ToggleSwitch Name="AutoRenameSwitch" Style="{StaticResource BasicSwitchStyle}" Toggled="AutoRenameSwitch_Toggled"/>
                     </StackPanel>
                 </StackPanel>
                 <Button Grid.Row="2" Name="CloseButton" Click="CloseButton_Click" HorizontalAlignment="Stretch" Style="{StaticResource PrimaryDialogButton}" x:Uid="CloseButton"/>

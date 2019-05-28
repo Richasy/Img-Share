@@ -2,19 +2,20 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <Source>G:\Project\Img_Share\logo.png</Source>
-    <SmallTileSource>G:\Project\Img_Share\logo.png</SmallTileSource>
-    <MediumTileSource>G:\Project\Img_Share\logo.png</MediumTileSource>
-    <WideTileSource>G:\Project\Img_Share\logo.png</WideTileSource>
-    <LargeTileSource>G:\Project\Img_Share\logo.png</LargeTileSource>
-    <AppIconSource>G:\Project\Img_Share\logo.png</AppIconSource>
-    <SplashScreenSource>G:\Project\Img_Share\logo.png</SplashScreenSource>
-    <BadgeLogoSource>G:\Project\Img_Share\logo.png</BadgeLogoSource>
-    <PackageLogoSource>G:\Project\Img_Share\logo.png</PackageLogoSource>
-    <AppxShowAllApps>False</AppxShowAllApps>
+    <Source>C:\Users\richasy\Desktop\PictureShare LOGO.png</Source>
+    <SmallTileSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</SmallTileSource>
+    <MediumTileSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</MediumTileSource>
+    <WideTileSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</WideTileSource>
+    <LargeTileSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</LargeTileSource>
+    <AppIconSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</AppIconSource>
+    <SplashScreenSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</SplashScreenSource>
+    <BadgeLogoSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</BadgeLogoSource>
+    <PackageLogoSource>C:\Users\richasy\Desktop\PictureShare LOGO.png</PackageLogoSource>
+    <AppxShowAllApps>True</AppxShowAllApps>
     <AppxPackageIsForStore>True</AppxPackageIsForStore>
     <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <UapAppxPackageBuildMode>StoreOnly</UapAppxPackageBuildMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
@@ -26,5 +27,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <UseSimulator>true</UseSimulator>
   </PropertyGroup>
 </Project>
