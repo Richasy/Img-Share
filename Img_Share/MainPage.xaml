@@ -51,6 +51,11 @@
         <DataTemplate x:DataType="model1:OneDriveImage" x:Key="ImageTemplate">
             <conrols:MyImage ImageLink="{x:Bind URL}"/>
         </DataTemplate>
+
+        <MenuFlyout x:Name="UploadAreaMenuFlyout">
+            <MenuFlyoutItem x:Uid="Menu_FromFile" Click="FromFileMenuItem_Click"/>
+            <MenuFlyoutItem x:Uid="Menu_FromClipboard" Click="FromClipboardMenuItem_Click"/>
+        </MenuFlyout>
         
     </Page.Resources>
     
@@ -97,6 +102,7 @@
                           Background="{ThemeResource FlyoutBackground}"
                           />
             </Popup>
+            <ProgressRing VerticalAlignment="Center" Grid.Column="1" Width="25" Height="25" HorizontalAlignment="Right" Foreground="{ThemeResource PrimaryColor}" Name="UpdateLoadingRing"/>
         </Grid>
         
         <!-- Body -->
@@ -114,7 +120,7 @@
             <ScrollViewer Style="{StaticResource BasicScrollViewer}" VerticalScrollBarVisibility="Auto">
                 <StackPanel Width="{x:Bind ShowAreaWidth,Mode=OneWay}">
                     <!-- 上传框 -->
-                    <Grid AllowDrop="True" Name="UploadArea" DragEnter="UploadArea_DragEnter" Tapped="UploadArea_Tapped" Drop="UploadArea_Drop" CornerRadius="5" Background="{ThemeResource MainBackground}" BorderBrush="{ThemeResource LineColor}" HorizontalAlignment="Left" Width="{x:Bind UploadProgressWidth,Mode=OneWay}" Height="{x:Bind UploadAreaHeight,Mode=OneWay}" BorderThickness="2">
+                    <Grid AllowDrop="True" Name="UploadArea" DragEnter="UploadArea_DragEnter" Tapped="UploadArea_Tapped" RightTapped="UploadArea_RightTapped" Drop="UploadArea_Drop" CornerRadius="5" Background="{ThemeResource MainBackground}" BorderBrush="{ThemeResource LineColor}" HorizontalAlignment="Left" Width="{x:Bind UploadProgressWidth,Mode=OneWay}" Height="{x:Bind UploadAreaHeight,Mode=OneWay}" BorderThickness="2">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Name="UploadAreaHold">
                             <TextBlock Text="&#xE902;" FontSize="80" HorizontalAlignment="Center" Foreground="{ThemeResource HolderIconColor}" FontFamily="{StaticResource Icon}"/>
                             <TextBlock x:Uid="UploadAreaTitle" HorizontalAlignment="Center" TextAlignment="Center" FontFamily="{ThemeResource AppTitle}" Foreground="{ThemeResource SubTextColor}" FontSize="20" Margin="0,10"/>

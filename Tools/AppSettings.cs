@@ -29,6 +29,10 @@
         /// <summary>
         /// 最后同步时间
         /// </summary>
-        SyncTime
+        SyncTime,
+        /// <summary>
+        /// 文件自动重命名
+        /// </summary>
+        AutoRename,
     }
 }

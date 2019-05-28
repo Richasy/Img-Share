@@ -64,6 +64,7 @@
         <StackPanel Background="{ThemeResource PrimaryColor}"
                     CornerRadius="6"
                     Padding="10"
+                    MaxWidth="250"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Name="PopupContainer"

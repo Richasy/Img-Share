@@ -408,4 +408,16 @@
   <data name="NoImageTip" xml:space="preserve">
     <value>There are no pictures in this group.</value>
   </data>
+  <data name="AutoRenameTitle.Text" xml:space="preserve">
+    <value>Auto rename file</value>
+  </data>
+  <data name="HaveUpdate" xml:space="preserve">
+    <value>Database has changed, updating...</value>
+  </data>
+  <data name="Menu_FromClipboard.Text" xml:space="preserve">
+    <value>From Clipboard</value>
+  </data>
+  <data name="Menu_FromFile.Text" xml:space="preserve">
+    <value>From File</value>
+  </data>
 </root>

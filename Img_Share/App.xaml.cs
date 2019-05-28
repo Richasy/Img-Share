@@ -1,4 +1,5 @@
 ﻿
+using Img_Share.Controls;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using OneDriveShareImage;
 using OneDriveShareImage.Model;
@@ -39,6 +40,7 @@ namespace Img_Share
         {
             e.Handled = true;
             string msg = e.Message;
+            new PopupMaskTip(msg).Show();
         }
 
         /// <summary>

@@ -39,7 +39,7 @@ namespace Img_Share.Controls
         }
 
         public ObservableCollection<OneDriveImageGroup> GroupCollection = new ObservableCollection<OneDriveImageGroup>();
-        
+        private bool isInit = false;
         private Popup _popup = null;
         public SettingControl()
         {
@@ -63,6 +63,9 @@ namespace Img_Share.Controls
             GroupNameCombo.SelectedItem = GroupCollection.First();
             ToolTipService.SetToolTip(OpenSourceButton, AppTools.GetReswLanguage("OpenSourceButton"));
             ToolTipService.SetToolTip(UseInfoButton, AppTools.GetReswLanguage("UseInfoButton"));
+            bool isAutoRename = Convert.ToBoolean(AppTools.GetLocalSetting(AppSettings.AutoRename, "True"));
+            AutoRenameSwitch.IsOn = isAutoRename;
+            isInit = true;
         }
 
 
@@ -193,6 +196,8 @@ namespace Img_Share.Controls
 
         private void GroupNameCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!isInit)
+                return;
             // 自动为组填充前缀
             var item = (OneDriveImageGroup)GroupNameCombo.SelectedItem;
             string name = item.GroupName;
@@ -271,7 +276,14 @@ namespace Img_Share.Controls
         private async void UseInfoButton_Click(object sender, RoutedEventArgs e)
         {
             // 应用说明书
-            await Launcher.LaunchUriAsync(new Uri("https://blog.richasy.cn/document/pictureshare/"));
+            await Launcher.LaunchUriAsync(new Uri("https://www.richasy.cn/apps/pictureshare.html"));
+        }
+
+        private void AutoRenameSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (!isInit)
+                return;
+            AppTools.WriteLocalSetting(AppSettings.AutoRename, AutoRenameSwitch.IsOn.ToString());
         }
     }
 }

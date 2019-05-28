@@ -25,7 +25,7 @@ namespace OneDriveShareImage
         /// <summary>
         /// 客户端ID 需前往 https://apps.dev.microsoft.com/ 注册一个应用账号
         /// </summary>
-        private string _clientId = "your_client_id";
+        private string _clientId = "814f2f74-3bb5-4f3f-8df4-b036dcadbf1d";
         /// <summary>
         /// 授权范围
         /// </summary>
@@ -136,6 +136,9 @@ namespace OneDriveShareImage
             var per = await image.GetBasicPropertiesAsync();
             string fileId = "";
             string name = "";
+            string extension = Path.GetExtension(image.Path);
+            bool isAutoRename = Convert.ToBoolean(AppTools.GetLocalSetting(AppSettings.AutoRename, "True"));
+            string fileName = isAutoRename ? Guid.NewGuid() + extension : image.Name.Trim();
             OneDriveStorageFile cre = null;
             try
             {
@@ -144,7 +147,7 @@ namespace OneDriveShareImage
                 {
                     using (var stream = await image.OpenReadAsync())
                     {
-                        cre = await imageFolder.StorageFolderPlatformService.CreateFileAsync(image.Name.Trim(), CreationCollisionOption.ReplaceExisting, stream);
+                        cre = await imageFolder.StorageFolderPlatformService.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting, stream);
                         fileId = cre.OneDriveItem.Id;
                         name = cre.OneDriveItem.Name;
                     }
@@ -153,7 +156,7 @@ namespace OneDriveShareImage
                 {
                     using (var stream = await image.OpenReadAsync())
                     {
-                        cre = await imageFolder.StorageFolderPlatformService.UploadFileAsync(image.Name.Trim(), stream, CreationCollisionOption.ReplaceExisting, 320 * 1024);
+                        cre = await imageFolder.StorageFolderPlatformService.UploadFileAsync(fileName, stream, CreationCollisionOption.ReplaceExisting, 320 * 1024);
                         fileId = cre.OneDriveItem.Id;
                         name = cre.OneDriveItem.Name;
                     }

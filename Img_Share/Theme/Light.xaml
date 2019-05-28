@@ -2,8 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Img_Share.Theme">
-    <AcrylicBrush x:Key="FlyoutBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.5" FallbackColor="#EEE"/>
-    <AcrylicBrush x:Key="PopupBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.3" FallbackColor="#EEE"/>
+    <AcrylicBrush x:Key="FlyoutBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.8" FallbackColor="#EEE"/>
+    <AcrylicBrush x:Key="PopupBackground" BackgroundSource="Backdrop"  TintColor="#FFF" TintOpacity="0.7" FallbackColor="#EEE"/>
     
     <SolidColorBrush x:Key="MainBackground" Color="#F3F4F8"/>
     <SolidColorBrush x:Key="MaskColor" Color="#E1E1E3"/>

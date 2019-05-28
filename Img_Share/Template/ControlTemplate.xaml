@@ -12,7 +12,7 @@
     <ItemsPanelTemplate x:Key="HorizontalListViewPanel">
         <ItemsStackPanel Orientation="Horizontal"/>
     </ItemsPanelTemplate>
-    
+
     <!-- 圆形主要按钮 -->
     <Style x:Key="CirclePrimaryButton" TargetType="Button">
         <Setter Property="Background" Value="{ThemeResource PrimaryColor}"/>

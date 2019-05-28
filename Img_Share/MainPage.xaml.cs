@@ -1,6 +1,7 @@
 ﻿using Img_Share.Controls;
 using Img_Share.Dialogs;
 using Img_Share.Model;
+using Microsoft.Toolkit.Uwp.Helpers;
 using OneDriveShareImage.Model;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Tools;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -166,41 +169,64 @@ namespace Img_Share
             UploadInfoCollection.Add(new KeyValue(AppTools.GetReswLanguage("ImageType"), AppTools.GetReswLanguage("None")));
             UploadInfoCollection.Add(new KeyValue(AppTools.GetReswLanguage("CreateDate"), AppTools.GetReswLanguage("None")));
             WaittingTip.Show();
+            OneDriveInit();
+            // 建立数据库连接
             try
             {
+                App.Db = new ImageDbContext();
+                var test = App.Db.Images.Where(p => p.Id == 1);
+            }
+            catch (Exception)
+            {
+                App.Db = await App.OneDriveTools.GetImgMetaList();
+            }
+            finally
+            {
+                // 加载分组
+                GroupInit();
+                // 加载最近上传列表
+                LastestInit();
+            }
+            // 设立图片操作的快捷键
+            Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated += Dispatcher_AcceleratorKeyActivated;
+            // 每10秒检测一次数据库状态，一旦数据库需要同步，则执行同步操作
+            AutoUpdateTimer.Interval = new TimeSpan(0, 0, 10);
+            AutoUpdateTimer.Tick += AutoUpdateDatabase;
+            AutoUpdateTimer.Start();
+        }
+        private async void OneDriveInit()
+        {
+            try
+            {
+                UpdateLoadingRing.IsActive = true;
                 // 检查OneDrive授权并获取应用文件夹
                 await App.OneDriveTools.OneDriveAuthorize();
                 // 检查云端数据库是否需要同步最新更改
                 bool isNoNeedSync = await App.OneDriveTools.CheckLastAsync();
                 if (!isNoNeedSync)
                 {
+                    new PopupMaskTip(AppTools.GetReswLanguage("HaveUpdate")).Show();
+                    App.Db.Dispose();
                     // 从别的客户端处修改了数据，那么本机进行数据同步
                     await App.OneDriveTools.SyncCloud();
+                    App.Db = new ImageDbContext();
                 }
-                // 建立数据库连接
-                App.Db = await App.OneDriveTools.GetImgMetaList();
-                // 加载分组
-                GroupInit();
-                // 加载最近上传列表
-                LastestInit();
+                UpdateLoadingRing.IsActive = false;
             }
             catch (Exception ex)
             {
+                UpdateLoadingRing.IsActive = false;
                 // 这里可能会出现授权失败的情况
                 if (ex.GetType() == typeof(UnauthorizedAccessException))
                 {
 
                 }
+                else
+                {
+                    throw;
+                }
             }
-            // 设立图片操作的快捷键
-            Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated += Dispatcher_AcceleratorKeyActivated;
-
-            // 每10秒检测一次数据库状态，一旦数据库需要同步，则执行同步操作
-            AutoUpdateTimer.Interval = new TimeSpan(0, 0, 10);
-            AutoUpdateTimer.Tick += AutoUpdateDatabase;
-            AutoUpdateTimer.Start();
         }
-
         private void Dispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs args)
         {
             if (args.EventType.ToString().Contains("Down"))
@@ -525,7 +551,7 @@ namespace Img_Share
                             imgList.Add(file);
                         }
                     }
-                    FileUpload(imgList);
+                    await FileUpload(imgList);
                 }
                 
             }
@@ -537,6 +563,11 @@ namespace Img_Share
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void UploadArea_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await AddImageFromFile();
+        }
+
+        public async Task AddImageFromFile()
         {
             if (UploadProgressCollection.Count > 0)
             {
@@ -570,11 +601,11 @@ namespace Img_Share
                     var file = item as StorageFile;
                     imgList.Add(file);
                 }
-                FileUpload(imgList);
+                await FileUpload(imgList);
             }
         }
 
-        public async void FileUpload(List<StorageFile> imgList)
+        public async Task FileUpload(List<StorageFile> imgList)
         {
             if (imgList.Count > 0)
             {
@@ -629,35 +660,42 @@ namespace Img_Share
                             var item = imgList[i];
                             UploadProgressCollection.Add(new ProgressStatus(i + 1, item.DisplayName));
                         }
+                        var tasks = new List<Task>();
                         // 开始逐一上传图片
                         foreach (var item in imgList)
                         {
-                            var img = await App.OneDriveTools.UploadImage(item, groupDialog.SelectGroup);
-                            // 图片若上传错误，则加入错误文件列表中
-                            if (img == null)
+                            tasks.Add(Task.Run(async () =>
                             {
-                                errorFile.Add(item);
-                            }
-                            // 否则，写入成功列表
-                            else
-                            {
-                                imgItemList.Add(img);
-                                LastestImageCollection.Insert(0, img);
-                                if (LastestNoDataTipBlock.Visibility == Visibility.Visible)
+                                await DispatcherHelper.ExecuteOnUIThreadAsync(async () =>
                                 {
-                                    LastestNoDataTipBlock.Visibility = Visibility.Collapsed;
-                                    LastestListView.Visibility = Visibility.Visible;
-                                }
-                                for (int j = UploadProgressCollection.Count - 1; j >= 0; j--)
-                                {
-                                    if (UploadProgressCollection[j].Name.Replace($"[{j + 1}] ", "") == item.DisplayName)
+                                    var img = await App.OneDriveTools.UploadImage(item, groupDialog.SelectGroup);
+                                    // 图片若上传错误，则加入错误文件列表中
+                                    if (img == null)
                                     {
-                                        UploadProgressCollection.RemoveAt(j);
+                                        errorFile.Add(item);
                                     }
-                                }
-                            }
-
+                                    // 否则，写入成功列表
+                                    else
+                                    {
+                                        imgItemList.Add(img);
+                                        LastestImageCollection.Insert(0, img);
+                                        if (LastestNoDataTipBlock.Visibility == Visibility.Visible)
+                                        {
+                                            LastestNoDataTipBlock.Visibility = Visibility.Collapsed;
+                                            LastestListView.Visibility = Visibility.Visible;
+                                        }
+                                        for (int j = UploadProgressCollection.Count - 1; j >= 0; j--)
+                                        {
+                                            if (UploadProgressCollection[j].Name.Replace($"[{j + 1}] ", "") == item.DisplayName)
+                                            {
+                                                UploadProgressCollection.RemoveAt(j);
+                                            }
+                                        }
+                                    }
+                                });
+                            }));
                         }
+                        await Task.WhenAll(tasks.ToArray());
                         // 所有任务上传完成，清空背景，加入占位符
                         var res = App.Current.RequestedTheme == ApplicationTheme.Dark ? (ResourceDictionary)App.Current.Resources.ThemeDictionaries["Dark"] : (ResourceDictionary)App.Current.Resources.ThemeDictionaries["Light"];
                         var color = (SolidColorBrush)res["MainBackground"];
@@ -678,8 +716,7 @@ namespace Img_Share
                         {
                             int num = await App.OneDriveTools.AddImageToDatabase(App.Db, imgItemList);
                             string msg = AppTools.GetReswLanguage("AddImageSuccess").Replace("{count}", num.ToString());
-                            var tipDialog = new TipDialog(AppTools.GetReswLanguage("AddSuccessTitle"), msg);
-                            await tipDialog.ShowAsync();
+                            new PopupMaskTip(msg).Show();
                             AppTools.WriteLocalSetting(AppSettings.SelectGroupIndex, groupDialog.SelectGroup.GroupId);
                             GroupInit(groupDialog.SelectGroup);
                         }
@@ -877,6 +914,56 @@ namespace Img_Share
                 int index = item.URL.LastIndexOf("key=") + 4;
                 item.URL = item.URL.Replace(item.URL.Substring(index), newKey);
             }
+        }
+
+        private async void FromFileMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            await AddImageFromFile();
+        }
+
+        private async void FromClipboardMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (UploadProgressCollection.Count > 0)
+            {
+                string msg = AppTools.GetReswLanguage("WaitToUpload");
+                var tipDialog = new TipDialog(AppTools.GetReswLanguage("DefaultTipTitle"), msg);
+                await tipDialog.ShowAsync();
+                return;
+            }
+            string authKey = AppTools.GetLocalSetting(AppSettings.AuthKey, "");
+            if (string.IsNullOrEmpty(authKey))
+            {
+                var keyDialog = new AuthKeyDialog();
+                await keyDialog.ShowAsync();
+                return;
+            }
+            try
+            {
+                var data = Clipboard.GetContent();
+                var bitmap = await data.GetBitmapAsync();
+                var tempFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(Guid.NewGuid().ToString("N")+".png",CreationCollisionOption.OpenIfExists);
+                using (var stream = await bitmap.OpenReadAsync() as IRandomAccessStream)
+                {
+                    using (var reader = new DataReader(stream))
+                    {
+                        await reader.LoadAsync((uint)stream.Size);
+                        var buffer = new byte[(int)stream.Size];
+                        reader.ReadBytes(buffer);
+                        await FileIO.WriteBytesAsync(tempFile, buffer);
+                    }
+                }
+                await FileUpload(new List<StorageFile>() { tempFile });
+                await tempFile.DeleteAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void UploadArea_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            UploadAreaMenuFlyout.ShowAt(sender as FrameworkElement, e.GetPosition(sender as FrameworkElement));
         }
     }
 }

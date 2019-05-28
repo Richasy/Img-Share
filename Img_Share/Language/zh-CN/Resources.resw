@@ -408,4 +408,16 @@
   <data name="UseInfoButton" xml:space="preserve">
     <value>软件说明</value>
   </data>
+  <data name="AutoRenameTitle.Text" xml:space="preserve">
+    <value>文件自动改名</value>
+  </data>
+  <data name="HaveUpdate" xml:space="preserve">
+    <value>检测到数据库变动，正在更新...</value>
+  </data>
+  <data name="Menu_FromClipboard.Text" xml:space="preserve">
+    <value>从剪切板上传</value>
+  </data>
+  <data name="Menu_FromFile.Text" xml:space="preserve">
+    <value>从文件上传</value>
+  </data>
 </root>
