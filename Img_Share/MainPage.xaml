@@ -75,7 +75,7 @@
             <!-- LOGO -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Image Name="AppIcon" Width="20" VerticalAlignment="Center"/>
-                <TextBlock Text="Img Share" VerticalAlignment="Center" FontSize="15" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
+                <TextBlock Text="Picture Share" VerticalAlignment="Center" FontSize="15" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
             </StackPanel>
             
             <!-- 搜索区域 -->

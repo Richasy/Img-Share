@@ -23,7 +23,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
             <Image Name="AppIcon" Width="35" VerticalAlignment="Center"/>
-            <TextBlock Text="Img Share" VerticalAlignment="Center" FontSize="23" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
+            <TextBlock Text="Picture Share" VerticalAlignment="Center" FontSize="23" Foreground="{ThemeResource ImportantTextColor}" FontFamily="{StaticResource LogoFont}" Margin="10,0,0,0"/>
         </StackPanel>
     </Grid>
 </Page>
