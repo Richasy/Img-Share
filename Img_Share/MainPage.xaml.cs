@@ -611,7 +611,7 @@ namespace Img_Share
             }
         }
 
-        public async Task FileUpload(List<StorageFile> imgList)
+        public async Task FileUpload(List<StorageFile> imgList, bool isDeleteFiles = false)
         {
             if (imgList.Count > 0)
             {
@@ -696,6 +696,10 @@ namespace Img_Share
                                             {
                                                 UploadProgressCollection.RemoveAt(j);
                                             }
+                                        }
+                                        if (isDeleteFiles)
+                                        {
+                                            await item.DeleteAsync();
                                         }
                                     }
                                 });
@@ -958,8 +962,8 @@ namespace Img_Share
                         await FileIO.WriteBytesAsync(tempFile, buffer);
                     }
                 }
-                await FileUpload(new List<StorageFile>() { tempFile });
-                await tempFile.DeleteAsync();
+                await FileUpload(new List<StorageFile>() { tempFile },true);
+                
             }
             catch (Exception)
             {

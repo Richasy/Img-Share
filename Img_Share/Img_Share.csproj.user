@@ -14,7 +14,7 @@
     <AppxShowAllApps>True</AppxShowAllApps>
     <AppxPackageIsForStore>True</AppxPackageIsForStore>
     <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
     <UapAppxPackageBuildMode>StoreOnly</UapAppxPackageBuildMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
@@ -29,6 +29,6 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <UseSimulator>true</UseSimulator>
+    <UseSimulator>false</UseSimulator>
   </PropertyGroup>
 </Project>

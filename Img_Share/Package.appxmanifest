@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="60520B029E250.PictureShare" Publisher="CN=9EFA2047-A580-400B-A5B2-0C7ABB0DB5C0" Version="1.0.7.0" />
+  <Identity Name="60520B029E250.PictureShare" Publisher="CN=9EFA2047-A580-400B-A5B2-0C7ABB0DB5C0" Version="1.0.9.0" />
   <mp:PhoneIdentity PhoneProductId="8c351bc3-0bf5-4437-8f02-0dc46b19462f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Picture Share</DisplayName>
@@ -18,7 +18,7 @@
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Img_Share.App">
       <uap:VisualElements DisplayName="Picture Share" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Img_Share"  BackgroundColor="transparent">
         <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Img Share" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Picture Share" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />
@@ -27,6 +27,11 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="richasy-pictureshare"/>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
